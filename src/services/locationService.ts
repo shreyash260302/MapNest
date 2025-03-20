@@ -41,7 +41,7 @@ export class LocationService {
       streetAddress: streetAddress || location.display_name,
       city: address.city || address.town || "",
       state: address.state || "",
-      pincode: address.postcode || "",
+      pincode: address.pincode || "",
       neighbourhood: address.neighbourhood || address.suburb || ""
     };
   }

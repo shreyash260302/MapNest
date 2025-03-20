@@ -71,6 +71,7 @@ export default function Home() {
 
   const handleLocationSelect = useCallback((location: LocationResult) => {
     const components = LocationService.extractAddressComponents(location);
+    console.log("components:", components);
     setNewAddress(prev => ({
       ...prev,
       phone: phoneNumber,
@@ -86,33 +87,36 @@ export default function Home() {
   }, [phoneNumber]);
 
   const handleAddAddress = useCallback(() => {
+    console.log("Current Address Data:", newAddress);
     if (validateAddress(newAddress)) {
       if (isEditing) {
         updateAddress(newAddress);
-        toast.success('Address updated successfully');
+        toast.success("Address updated successfully");
       } else {
         const newId = Math.random().toString(36).substr(2, 9);
         addAddress({ ...newAddress, id: newId });
-        toast.success('Address added successfully');
+        toast.success("Address added successfully");
       }
       setShowAddressModal(false);
       setNewAddress({
-        id: '',
-        type: 'Home',
-        phone: phoneNumber,
-        flatNo: '',
-        addressLine1: '',
-        addressLine2: '',
-        city: '',
-        state: '',
-        pincode: '',
-        saveAs: '',
+        id: "",
+        type: "Home",
+        phone: phoneNumber, // Ensure this is correctly set
+        flatNo: "",
+        addressLine1: "",
+        addressLine2: "",
+        city: "",
+        state: "",
+        pincode: "",
+        saveAs: "",
         isSelected: false,
       });
     } else {
-      toast.error('Please fill all required fields');
+      console.log("Validation Failed:", newAddress);
+      toast.error("Please fill all required fields");
     }
   }, [newAddress, isEditing, addAddress, updateAddress, phoneNumber]);
+  
 
   return (
     <div className="min-h-screen bg-white">
@@ -157,6 +161,10 @@ export default function Home() {
         addresses={addresses}
         onAddressSelect={handleAddressSelect}
         onAddNew={() => {
+          if (phoneNumber.length !== 10) {
+            toast.error("Phone number must be exactly 10 digits");
+            return;
+          }
           if (validatePhoneNumber(phoneNumber)) {
             setShowAddressSelectionModal(false);
             setShowLocationModal(true);

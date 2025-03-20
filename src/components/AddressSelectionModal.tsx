@@ -115,7 +115,7 @@ export const AddressSelectionModal = ({
 
           <button
             onClick={onAddNew}
-            disabled={!validatePhoneNumber(phoneNumber)}
+            // disabled={!validatePhoneNumber(phoneNumber)}
             className="flex items-center justify-center w-full py-3 text-orange-500 font-medium rounded-lg border border-orange-500 hover:bg-orange-50 transition-colors mb-4"
           >
             <CirclePlus className="h-5 w-5 mr-2" />

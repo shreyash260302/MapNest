@@ -18,18 +18,18 @@ export interface LocationResult {
     city?: string;
     town?: string;
     state?: string;
-    postcode?: string;
+    pincode?: string;
     road?: string;
     suburb?: string;
     neighbourhood?: string;
   };
 }
 
-export interface GoogleMapsPlace {
-  address_components: Array<{
-    long_name: string;
-    short_name: string;
-    types: string[];
-  }>;
-  formatted_address: string;
-}
+// export interface GoogleMapsPlace {
+//   address_components: Array<{
+//     long_name: string;
+//     short_name: string;
+//     types: string[];
+//   }>;
+//   formatted_address: string;
+// }

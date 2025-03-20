@@ -5,17 +5,17 @@ export const validatePhoneNumber = (number: string): boolean => {
 };
 
 export const validateAddress = (address: {
+  phone: string;
   flatNo: string;
   addressLine1: string;
   city: string;
   state: string;
-  pincode: string;
 }): boolean => {
   return !!(
-    address.flatNo &&
-    address.addressLine1 &&
-    address.city &&
-    address.state &&
-    address.pincode
+    address.phone.trim() &&
+    address.flatNo.trim() &&
+    address.addressLine1.trim() &&
+    address.city.trim() &&
+    address.state.trim()
   );
 };

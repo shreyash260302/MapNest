@@ -29,7 +29,7 @@ export const AddressCard = ({
             {address.saveAs || address.type}
           </h2>
           <p className="text-sm text-gray-500 leading-relaxed">
-            {address.flatNo}, {address.addressLine1}
+            {address.flatNo}
           </p>
           {address.addressLine2 && (
             <p className="text-sm text-gray-500 leading-relaxed">
@@ -37,7 +37,7 @@ export const AddressCard = ({
             </p>
           )}
           <p className="text-sm text-gray-500">
-            {address.city}, {address.state}, {address.pincode}
+          {address.addressLine1},{address.city}, {address.state}, {address.pincode}
           </p>
           <p className="text-sm text-gray-500 leading-relaxed">
             {address.phone}
